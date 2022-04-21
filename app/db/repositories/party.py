@@ -5,10 +5,4 @@ from db.session import SessionLocal
 
 
 class PartyRepo(BaseRepo[DomainParty, PartyCreate, PartyUpdate]):
-    def accept(self, id_in: int):
-        with SessionLocal() as db:
-            domain_party = db.query(self.model).filter(self.model.id == id_in).first()
-            domain_party.accept = True
-            db.commit()
-            db.refresh(domain_party)
-        return domain_party
+    ...

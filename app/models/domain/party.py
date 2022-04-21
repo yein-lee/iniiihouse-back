@@ -1,7 +1,6 @@
-from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, Enum, Text, DateTime
+from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, Text, DateTime
 
 from db.session import Base
-from models.schemas.user import UserGrade
 
 
 class Party(Base):
@@ -13,3 +12,4 @@ class Party(Base):
     start_at = Column(DateTime)
     end_at = Column(DateTime)
     accepted = Column(Boolean)
+    create_user = Column(Integer, ForeignKey('user.id'))

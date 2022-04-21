@@ -1,3 +1,4 @@
+from typing import Optional
 from datetime import datetime
 from pydantic import BaseModel
 
@@ -11,15 +12,15 @@ class PartyCreate(PartyBase):
     memo: str
     start_at: datetime
     end_at: datetime
-    accept: bool
+    accepted: Optional[bool] = None
 
 
 class PartyUpdate(PartyBase):
-    title: str
-    memo: str
-    start_at: datetime
-    end_at: datetime
-    accept: bool
+    title: Optional[str] = None
+    memo: Optional[str] = None
+    start_at: Optional[datetime] = None
+    end_at: Optional[datetime] = None
+    accepted: Optional[bool] = None
 
 
 class Party(PartyBase):
@@ -27,7 +28,7 @@ class Party(PartyBase):
     memo: str
     start_at: datetime
     end_at: datetime
-    accept: bool
+    accepted: bool
 
     class Config:
         orm_mode = True

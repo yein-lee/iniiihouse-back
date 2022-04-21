@@ -19,7 +19,7 @@ class UserBase(BaseModel):
 
 class UserCreate(UserBase):
     password: str
-    gender: Gender
+    gender: Optional[Gender] = None
     grade: UserGrade
 
 
@@ -29,7 +29,7 @@ class UserUpdate(UserBase):
 
 class User(UserBase):
     password: str
-    gender: Gender
+    gender: Optional[Gender] = None
     grade: UserGrade
 
     class Config:
